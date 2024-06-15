@@ -5,36 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Character Details</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const characterName = params.get('name');
-            
-            const characters = {
-                'Goku': {
-                    'image': 'goku.jpeg',
-                    'description': 'Goku is the main protagonist of the Dragon Ball series.'
-                },
-                'Vegeta': {
-                    'image': 'vegeta.jpeg',
-                    'description': 'Vegeta is the prince of the Saiyan race and rival to Goku.'
-                },
-                'Gohan': {
-                    'image': 'gohan.jpeg',
-                    'description': 'Gohan is the eldest son of Goku and a powerful warrior.'
-                }
-            
-            };
-
-            if (characters[characterName]) {
-                document.getElementById('characterName').textContent = characterName;
-                document.getElementById('characterImage').src = characters[characterName].image;
-                document.getElementById('characterDescription').textContent = characters[characterName].description;
-            } else {
-                document.getElementById('characterDetails').innerHTML = '<p>Character not found.</p>';
-            }
-        });
-    </script>
 </head>
 <body>
     <header>
@@ -54,5 +24,37 @@
     <footer>
         <p>&copy; 2024 Dragon Ball Z Portfolio</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const characterName = params.get('name');
+            
+            const characters = {
+                'Goku': {
+                    'image': 'goku.jpeg',
+                    'description': 'Goku is the main protagonist of the Dragon Ball series.'
+                },
+                'Vegeta': {
+                    'image': 'vegeta.jpeg',
+                    'description': 'Vegeta is the prince of the Saiyan race and rival to Goku.'
+                },
+                'Gohan': {
+                    'image': 'gohan.jpeg',
+                    'description': 'Gohan is the eldest son of Goku and a powerful warrior.'
+                }
+           
+            };
+
+            if (characterName && characters[characterName]) {
+                document.getElementById('characterName').textContent = characterName;
+                document.getElementById('characterImage').src = characters[characterName].image;
+                document.getElementById('characterDescription').textContent = characters[characterName].description;
+            } else {
+                
+                document.getElementById('characterDetails').innerHTML = '<p>Character not found.</p>';
+            }
+        });
+    </script>
 </body>
 </html>
