@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const characterName = params.get('name');
+            
+            const characters = {
+                'Goku': {
+                    'image': 'images/goku.jpeg',
+                    'description': 'Goku is the main protagonist of the Dragon Ball series.'
+                },
+                'Vegeta': {
+                    'image': 'images/vegeta.jpeg',
+                    'description': 'Vegeta is the prince of the Saiyan race and rival to Goku.'
+                },
+                'Gohan': {
+                    'image': 'images/gohan.jpeg',
+                    'description': 'Gohan is the eldest son of Goku and a powerful warrior.'
+                }
+                // Add more characters as needed
+            };
+
+            if (characters[characterName]) {
+                document.getElementById('characterName').textContent = characterName;
+                document.getElementById('characterImage').src = characters[characterName].image;
+                document.getElementById('characterDescription').textContent = characters[characterName].description;
+            } else {
+                document.getElementById('characterDetails').innerHTML = '<p>Character not found.</p>';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="characterName">Character Name</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+    <main>
+        <section id="characterDetails">
+            <img id="characterImage" src="" alt="Character Image">
+            <p id="characterDescription">Character Description</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dragon Ball Z Portfolio</p>
+    </footer>
+</body>
+</html>
